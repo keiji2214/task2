@@ -1,1 +1,46 @@
-test
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="utf-8">
+</head>
+
+<body>
+
+  <script>
+
+    let i = 0;
+    let result;
+    let ans = prompt("日本の首都は?");
+
+    while (ans != "東京") {
+      if (ans === null) {
+        dialog.close();
+      } else if (ans === "") {
+        alert("未入力です。");
+        ans = prompt("日本の首都は?");
+      } else if (i === 2) {    //3回間違えたら、ヒント出す
+        result = confirm("ヒントは必要ですか?");
+        if (result === true) {
+          alert("ヒントは、👉🗼");
+          ans = prompt("日本の首都は?");
+          i = 0;  //リセット
+        } else {
+          ans = prompt("日本の首都は?");
+          i = 0;  //リセット
+        }
+      } else {
+        alert("不正解です！");
+        i += 1; //間違えた回数をカウントする
+        ans = prompt("日本の首都は?");
+      }
+    }
+    alert("正解です！");
+
+
+  </script>
+
+</body>
+
+
+</html>
